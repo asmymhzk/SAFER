@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Terrain agricole{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Catégorie Terrain agricole</h1>
+</div>
+</br>
+</br>
+
+<div class="container">
+{% for property in properties %}
+<div class="grix xs2 sm3 gutter-0 card">
+<div class="primary flex vcenter fx-center">
+
+{% if property.prix == 2000 %}
+<img src="{{ asset('assets/img/SAFER/38TB22187.jpg')| imagine_filter('my_thumb') }}" alt="">
+
+{%elseif property.prix == 156000 %}
+<img src="{{ asset('assets/img/SAFER/5667DB.jpg')| imagine_filter('my_thumb') }}" alt="">
+
+{%elseif property.prix == 11000 %}
+<img src="{{ asset('assets/img/SAFER/47.06.098.jpg') | imagine_filter('my_thumb')}}" alt="">
+
+{%elseif property.prix == 1300 %}
+<img src="{{ asset('assets/img/SAFER/48RE11201.jpg') }}" alt="">
+
+{%else %}
+<img src="{{ asset('assets/img/SAFER/88FB.jpg') }}" alt="">
+
+{%endif %}
+
+</div>
+<div class="col-sm2">
+<div class="card-header">{{property.titre}}
+</br> Prix: {{property.prix}} €
+</br> {{property.StatusType}}
+</div>
+<div class="card-content">
+<p>
+{{property.description}}
+</p>
+
+<div class="txt-red">
+
+<a href="{{path("favoris_add", {id: property.id})}}" class="btn btn-success">
+<i class="fas fa-heart"></i> Ajouter aux favoris
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+{%endfor%} 
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistique{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<section class="bg-light p-3">
+        <h1>Statistiques SAFER</h1>
+    </section>
+ 
+{% for stat in statistique %}
+    
+<br> {{stat.departement}}
+<br> {{stat.categorie_pref}}
+<br> {{stat.biens_pref}}
+
+{%endfor%} 
+      
+<table class="table">
+<thead>
+<tr>
+<th>Departement</th>
+<th>Biens préférés</th>
+<th>Catégorie préférée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 35 </td>
+<td> Sapinière  </td>
+<td> Bois </td>
+</tr>
+<tr>
+<td> 69 </td>
+<td> Terrains avec abri  </td>
+<td> Prairies </td>
+</tr>
+<tr>
+<td> 62 </td>
+<td> Propriété Lozère </td>
+<td> Bâtiments </td>
+</tr>
+</tbody>
+</table>
+
+{% endblock %}

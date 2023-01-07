@@ -1,0 +1,78 @@
+ 
+        
+  <section class="section-property section-t8">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title-wrap d-flex justify-content-between">
+              <div class="title-box">
+                <h2 class="title-a">Dernières propriétés</h2>
+              </div>
+              <div class="title-link">
+    
+                <a href="{{ path('app_property') }}"> Toutes les propriétés
+                  
+                  <span class="bi bi-chevron-right"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="property-carousel" class="swiper">
+          <div class="swiper-wrapper">
+
+        {% for property in properties %}
+            <div class="carousel-item-b swiper-slide">
+              <div class="card-box-a card-shadow">
+                <div class="img-box-a">
+               
+                {%if property.prix == 1300 %}
+                  <img src="{{ asset('assets/img/SAFER/44 22 AN 08.jpg')| imagine_filter('my_thumb2')}}" alt="" >
+                
+                {%elseif property.prix == 52000 %}
+<img src="{{ asset('assets/img/SAFER/Z34.345.45.jpg')| imagine_filter('my_thumb2')}}" alt="">
+
+{%else%}
+<img src="{{ asset('assets/img/SAFER/76RZDC.jpg') }}" alt="">
+{%endif%}
+                </div>
+                <div class="card-overlay">
+                  <div class="card-overlay-a-content">
+                    <div class="card-header-a">
+                      <h2 class="card-title-a">
+                        <a href="{{ path('app_property_show', {id : property.id, 
+                      slug: property.slug}) }}"> {{property.CategorieType}}
+                          <br /> {{property.titre}}</a>
+                      </h2>
+                    </div>
+                    <div class="card-body-a">
+                      <div class="price-box d-flex">
+                        <span class="price-a">{{property.StatusType}} | {{property.formattedPrix}} €</span>
+                      </div>
+                      <a href="{{ path('app_property_show', {id : property.id, 
+                      slug: property.slug})}}" class="link-a">Cliquez ici pour voir
+                        <span class="bi bi-chevron-right"></span>
+                      </a>
+                    </div>
+                    <div class="card-footer-a">
+                      <ul class="card-info d-flex justify-content-around">
+                        <li>
+                          <h4 class="card-info-title">Superficie</h4>
+                          <span>{{property.surface}} Ha
+                            <sup></sup>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        {% endfor %}
+          </div>
+        </div>
+        <div class="propery-carousel-pagination carousel-pagination"></div>
+
+      </div>
+    </section>

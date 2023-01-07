@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prairie{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Catégorie Prairie</h1>
+</div>
+
+</br>
+</br>
+
+<div class="container">
+
+{% for property in properties %}
+
+<div class="grix xs2 sm3 gutter-0 card">
+<div class="primary flex vcenter fx-center">
+
+{% if property.prix == 113000 %}
+<img src="{{ asset('assets/img/SAFER/765DN.jpg')| imagine_filter('my_thumb') }}" alt="">
+
+{%elseif property.prix == 3000 %}
+<img src="{{ asset('assets/img/SAFER/76RZDC.jpg')| imagine_filter('my_thumb') }}" alt="">
+
+{%elseif property.prix == 1200 %}
+<img src="{{ asset('assets/img/SAFER/9875RDC.jpg') }}" alt="">
+
+{%elseif property.prix == 2400 %}
+<img src="{{ asset('assets/img/SAFER/Z34.345.45.jpg') | imagine_filter('my_thumb')}}" alt="">
+
+{%elseif property.prix == 400000 %}
+<img src="{{ asset('assets/img/SAFER/7629CA.jpg') | imagine_filter('my_thumb')}}" alt="">
+
+{%elseif property.prix == 15000 %}
+<img src="{{ asset('assets/img/SAFER/43LM220118.jpg') }}" alt="">
+
+{%else %}
+<img src="{{ asset('assets/img/SAFER/64.02.59.jpg') }}" alt="">
+
+{%endif %}
+
+</div>
+<div class="col-sm2">
+<div class="card-header">{{property.titre}} 
+</br> Prix: {{property.prix}} €
+</br> {{property.StatusType}}
+</div>
+<div class="card-content">
+<p>
+{{property.description}}
+</p>
+
+<div class="txt-red">
+
+<a href="{{path("favoris_add", {id: property.id})}}" class="btn btn-success">
+<i class="fas fa-heart"></i> Ajouter aux favoris
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+{%endfor%} 
+</div>
+
+{% endblock %}

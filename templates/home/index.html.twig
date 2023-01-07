@@ -3,5 +3,12 @@
 {% block title %}SAFER{% endblock %}
 
 {% block body %}
+{# Intro Section #}
 {{ include('home/partials/Intro_section.html.twig')}}
+<main id="main">
+{# Services Section #}
+{{ include('home/partials/Services_section.html.twig')}}
+{# Latest Properties#}
+{{ include('home/partials/Latest_properties_section.html.twig')}}
+
 {% endblock %}

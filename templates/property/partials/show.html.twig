@@ -1,0 +1,11 @@
+ {% extends 'layouts/base.html.twig' %}
+
+{% block title %}SAFER - {{property.titre}} {% endblock %}
+
+{% block body %}
+    <main id="main">
+    {# Intro Single #}
+    {{ include('property/partials/Intro_single_show.html.twig') }}
+    </main>
+{% endblock %}
+

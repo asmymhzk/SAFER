@@ -10,3 +10,6 @@ when@prod:
     framework:
         router:
             strict_requirements: null
+            
+liip_imagine:
+    default_image: "@LiipImagineBundle/Resources/config/routing.yaml"
